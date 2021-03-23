@@ -1,4 +1,5 @@
 const express = require( 'express' );
+const cors = require('cors')
 
 //TODO clase server 
 class Server {
@@ -19,36 +20,16 @@ constructor(){
 
 middlewares(){
 
+    //cors
+    this.app.use(cors());
+
     //directorio publico
     this.app.use( express.static( 'public' ) );
 }
 
 routes(){
 
-    this.app.get( '/api', ( req, res ) =>  {
-    res.json( {
-        msg: 'Get API'
-        });
-    });
-
-    this.app.put( '/api', ( req, res ) =>  {
-    res.json( {
-        msg: 'Put API'
-        });
-    });
-
-    this.app.post( '/api', ( req, res ) =>  {
-    res.json( {
-        msg: 'Post API'
-        });
-    });
-
-    this.app.delete( '/api', ( req, res ) =>  {
-    res.json( {
-        msg: 'Delete API'
-        });
-    });
-
+    this.app.use( '/api/users', require('../routes/user') );
 
 }
 
