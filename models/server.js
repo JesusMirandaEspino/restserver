@@ -9,6 +9,7 @@ constructor(){
     //variables para asignar express
     this.app = express();
     this.port = process.env.PORT;
+    this.usuariosPath = '/api/users';
 
 
     //middlewares
@@ -29,7 +30,7 @@ middlewares(){
 
 routes(){
 
-    this.app.use( '/api/users', require('../routes/user') );
+    this.app.use(   this.usuariosPath , require('../routes/user') );
 
 }
 
