@@ -1,8 +1,10 @@
-const { response } = require( 'express' );
+const { response, request } = require( 'express' );
 
-const usersGet =  ( req, res = response ) =>  {
+const usersGet =  ( req = request , res = response ) =>  {
+    const query = req.query
     res.json( {
-        msg: 'Get API'
+        msg: 'Get API',
+        query
         });
     }
 
@@ -16,8 +18,10 @@ const usersPost =  ( req, res = response ) =>  {
     }
 
 const usersPut =  ( req, res = response ) =>  {
+    const id = req.params.id;
     res.json( {
-        msg: 'Put API'
+        msg: 'Put API',
+        id
         });
     } 
 
