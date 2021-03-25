@@ -1,10 +1,14 @@
 const { response, request } = require( 'express' );
 
 const usersGet =  ( req = request , res = response ) =>  {
-    const query = req.query
+    const { q, nombre = 'No name', apikey, page = 5, limit } = req.query
     res.json( {
         msg: 'Get API',
-        query
+        q,
+        nombre,
+        apikey,
+        page,
+        limit
         });
     }
 
