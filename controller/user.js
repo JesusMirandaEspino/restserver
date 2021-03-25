@@ -7,10 +7,14 @@ const usersGet =  ( req, res = response ) =>  {
     }
 
 const usersPost =  ( req, res = response ) =>  {
+    const { nombre, edad } = req.body;
     res.status(201).json( {
-        msg: 'Post API'
+        msg: 'Post API',
+        nombre,
+        edad,
         });
     }
+
 const usersPut =  ( req, res = response ) =>  {
     res.json( {
         msg: 'Put API'
